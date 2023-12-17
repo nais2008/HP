@@ -104,7 +104,7 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 		</div>
 
 		<div class='block4 animate__animated animate__fadeIn wow'>
-			<img src='https://dogoff.ru/wp-content/uploads/2020/11/cardigan-welsh-corgi-3-e1515839013622.jpg' alt='Вельш-корги' class='img_4'>
+			<img src='https://pastba.ru/upload/information_system_1/0/2/2/item_22/item_22.jpg' alt='Вельш-корги' class='img_4'>
 			<span class='text4'>Вельш-корги</span>
 			<span class='text_4'><b>Цена:</b> 35000р.</span>
 			<input name='input4' class='input4' type='submit' value="submit" form='form'>
