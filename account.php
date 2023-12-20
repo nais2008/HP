@@ -98,7 +98,7 @@ if($conn->connect_error){
 
 <body>
 		<div class='div1 animate__animated animate__bounceInDown' >
-				<img src='https://m.buro247.ru/images/dasha/news/putin4.jpg' class='img1'>
+				<img src='https://sun9-20.userapi.com/impf/c633817/v633817482/2f641/B6ALCBXVQzk.jpg?size=500x500&quality=96&sign=a220c3c6f4feedad2b1760e83250cac9&type=album' class='img1'>
 				<img src='https://cdn-icons-png.flaticon.com/512/2527/2527195.png' class='img2'>
 				
 				<?php

@@ -65,7 +65,7 @@
             
                 <?php
                     if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']))&&(isset($_COOKIE['izm3']))){
-                        echo "<div class='box'><a href='account.php'><img src='https://m.buro247.ru/images/dasha/news/putin4.jpg'></a></div>";
+                        echo "<div class='box'><a href='account.php'><img src='https://sun9-20.userapi.com/impf/c633817/v633817482/2f641/B6ALCBXVQzk.jpg?size=500x500&quality=96&sign=a220c3c6f4feedad2b1760e83250cac9&type=album'></a></div>";
                     }
                     else{
                         echo '<a href="nn.php" class="vhod"></a>';
