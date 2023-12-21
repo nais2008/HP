@@ -50,7 +50,7 @@ if ((isset($_POST['logemail']))&&(isset($_POST['logname']))&&(isset($_POST['logp
 				}
 				
 				
-				$new_url = 'https://localhost/HP/account.php';
+				$new_url = 'account.php';
 				header('Location: '.$new_url);
 				}
 		
@@ -85,7 +85,7 @@ if ((isset($_POST['logname1']))&&(isset($_POST['logpass1']))&&(isset($_POST['inp
 				setcookie("logname", $_POST['logname1']);
 				setcookie("logpass", $_POST['logpass1']);
 				
-		 $new_url = 'https://localhost/HP/account.php';
+		 $new_url = 'account.php';
 		  header('Location: '.$new_url);
 			 }
 }
