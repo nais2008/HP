@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+$conn = mysqli_connect("localhost", "root", "", "hp");
+if($conn->connect_error){
+    die("Ошибка: " . $conn->connect_error);
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -80,15 +86,31 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 				<input type='text' class='poisk' placeholder="Поиск">
 			</section>
 			<div class="pet">
-				<section class="dog">
+				<?php
+					$query = "SELECT * FROM `pet`";      
+					$result = mysqli_query($conn, $query);   
+					$row = $result->fetch_assoc();
+					
+					if (isset($row)){
+						echo "
+							<article class='pets'>
+								<section class='pets__info'>
+									<h2>Кличка: <span>", $row['name'], "</span></h2>
+									<p><b>Описание: </b><span>", $row['description'], "</span></p>
+									<p><b>Цена: </b><span>", $row['price'], "</span></p>
+								</section>
+								<section class='pets__buttons'>
+									<form id='form_for_info_pet'>
+										<button type='submit' form='form_for_info_pet'>Больше инфрмации</button>
+									</form>
+									<form>
 
-				</section>
-				<section class='cat'>
-
-				</section>
-				<section class="popug">
-
-				</section>
+									</form>
+								</section>
+							</article>
+						";
+					}
+				?>
 			</div>
 			<section class="form_sozdat">
 				<button type='submit' class='sozdat'>Создать объявление</button>
@@ -149,9 +171,6 @@ const goToTop = () => {
 };
 
 backToTopButton.addEventListener("click", goToTop)
-
-// -----------------------------------------------------------
-
 
 </script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

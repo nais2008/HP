@@ -511,11 +511,11 @@
   .poisk{
 	width:90vw;
 	background-color: rgba(0, 0, 0, 0.5);
-	padding: 5px 20px;
+	padding: 10px 25px;
 	font-size: 20px;
 	color:#fff;
 	border-radius: 8px;
-	box-shadow:0 0 50px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 50px rgba(0, 0, 0, 0.3);
 	margin-left:50%;
 	transform: translateX(-50%);
 	border:none;
@@ -526,8 +526,10 @@
   .poisk::placeholder{
 	color:#a4a4a4;
   }
-  .poisk:active{
+  .poisk:active,
+  .poisk:focus{
 	box-shadow: none;
+  outline: none;
 	border:none;
   }
   .poisk:checked{
@@ -548,5 +550,5 @@
   }
   .sozdat:hover{
 	cursor: pointer;
-	font-size: 26px;
+	font-size: 25px;
   }

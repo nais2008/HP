@@ -110,7 +110,7 @@ top: 0.25rem;
 background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
 filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
 border-radius: 6.875rem;
-
+border: 1px solid #FE6969;
 position: relative;
 font-family: 'Montserrat';
 font-style: normal;
