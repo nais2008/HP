@@ -89,26 +89,49 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 				<?php
 					$query = "SELECT * FROM `pet`";      
 					$result = mysqli_query($conn, $query);   
-					$row = $result->fetch_assoc();
 					
-					if (isset($row)){
-						echo "
-							<article class='pets'>
-								<section class='pets__info'>
-									<h2>Кличка: <span>", $row['name'], "</span></h2>
-									<p><b>Описание: </b><span>", $row['description'], "</span></p>
-									<p><b>Цена: </b><span>", $row['price'], "</span></p>
-								</section>
-								<section class='pets__buttons'>
-									<form id='form_for_info_pet' method='post'>
-										<button type='submit' form='form_for_info_pet'>Больше инфрмации</button>
-									</form>
-									<form id='form_korzina' method='post'>
-										<button type='submit' form='form_korzina'>Добавить в корзину</button>
-									</form>
-								</section>
-							</article>
-						";
+					while($row = $result->fetch_assoc()){
+						if (isset($row)){
+							if (strlen($row['description'])){
+								echo "
+								<article class='pets'>
+									<section class='pets__info'>
+										<h2>Кличка: <span>", $row['name'], "</span></h2>
+										<p><b>Описание: </b><span>",  $row['description'] , "</span></p>
+										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
+									</section>
+									<section class='pets__buttons'>
+										<form id='form_for_info_pet' method='post'>
+											<button type='submit' form='form_for_info_pet'>Больше инфрмации</button>
+										</form>
+										<form id='form_korzina' method='post'>
+											<button type='submit' form='form_korzina'>Добавить в корзину</button>
+										</form>
+									</section>
+								</article>
+							";
+							continue;
+							} else{
+								echo "
+								<article class='pets'>
+									<section class='pets__info'>
+										<h2>Кличка: <span>", $row['name'], "</span></h2>
+										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) , '...', "</span></p>
+										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
+									</section>
+									<section class='pets__buttons'>
+										<form id='form_for_info_pet' method='post'>
+											<button type='submit' form='form_for_info_pet'>Больше инфрмации</button>
+										</form>
+										<form id='form_korzina' method='post'>
+											<button type='submit' form='form_korzina'>Добавить в корзину</button>
+										</form>
+									</section>
+								</article>
+							";
+							continue;
+							}
+						}
 					}
 				?>
 			</div>

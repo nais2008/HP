@@ -552,3 +552,8 @@
 	cursor: pointer;
 	font-size: 25px;
   }
+  .pet{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
