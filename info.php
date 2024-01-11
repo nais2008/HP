@@ -54,7 +54,7 @@
         
             <span id="p3"><a href="info.php">О сервисе</a></span>
         
-            <span id="p4"><a href="contacts.php">Контакты</a></span>
+            <span id="p4"><a href="check_conatccts.php">Контакты</a></span>
         
             <div class="div5">
                 <img src="photo\shopping-cart(2).png" class="img5">
@@ -100,7 +100,7 @@
         
         <span id="p31"><a href="info.css">О сервисе</a></span>
         
-        <span id="p41"><a href="contacts.php">Контакты</a></span>
+        <span id="p41"><a href="check_conatccts.php">Контакты</a></span>
         
         <div class="div51">
             <img src="photo\shopping-cart(2).png" class="img51">

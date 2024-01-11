@@ -1,17 +1,6 @@
 html {
     overflow-x: hidden;
     }
-   ::-webkit-scrollbar {
-  width: 0px;  /* remove scrollbar space */
-  background: transparent;  /* optional: just make scrollbar invisible */
-    }
-  /* optional: show position indicator in red */
-  ::-webkit-scrollbar-thumb {
-  width: -1px;  /* remove scrollbar space */
-  background: rgba(0,0,0,0);  /* optional: just make scrollbar invisible */
-  opacity: .0;
-  color:rgba(0,0,0,0);  
-   }
 body{
 font-family: 'Montserrat', sans-serif;
 background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
@@ -470,6 +459,9 @@ background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%,
   .form-style:hover{
 	cursor:auto;
   }
+  .form-style::placeholder{
+    color:#fff;
+  }
   .div3{
     width: 10rem;
     height: 4rem;
@@ -487,6 +479,7 @@ background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%,
     line-height: 2.313rem;
     /* identical to box height */
     color: #fff;
+    border: none;
 
     
     }

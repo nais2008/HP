@@ -61,7 +61,7 @@ if($conn->connect_error){
 
 <span id="p3"><a href="info.php">О сервисе</a></span>
 
-<span id="p4"><a href="contacts.php">Контакты</a></span>
+<span id="p4"><a href="check_conatccts.php">Контакты</a></span>
 
 <div class="div5">
 	<img src="photo\shopping-cart(2).png" class="img5">
@@ -92,12 +92,12 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 					
 					while($row = $result->fetch_assoc()){
 						if (isset($row)){
-							if (strlen($row['description'])){
+							if (strlen($row['description']) > 10){
 								echo "
 								<article class='pets'>
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
-										<p><b>Описание: </b><span>",  $row['description'] , "</span></p>
+										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) , '...', "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
 									<section class='pets__buttons'>
@@ -116,7 +116,7 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 								<article class='pets'>
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
-										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) , '...', "</span></p>
+										<p><b>Описание: </b><span>",  $row['description'], "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
 									<section class='pets__buttons'>
@@ -141,8 +141,6 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 		</div>
 	</div>
 </main>
-
-<br><br>
 
 <footer class='animate__animated animate__fadeIn wow'>
 	<span class='address'><b>Адрес:</b> Шадринск, ул. Пушкина, дом 500</span><br>

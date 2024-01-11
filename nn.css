@@ -368,6 +368,7 @@ border-radius: 2rem;
   color: #fff;
   position:relative;
   left:-3.5rem;
+  border:none;
 }
 #nazad{
   font-family: 'Montserrat', sans-serif;
@@ -382,4 +383,8 @@ border-radius: 2rem;
     color: #fff;
     position:relative;
     left:6rem;
+    border: 1px solid #FE6969;
+}
+#nazad:hover, .imput1:hover{
+  cursor: pointer;
 }

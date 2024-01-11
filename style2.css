@@ -12,17 +12,6 @@
 	   html {
 		overflow-x: hidden;
 		}
-	   ::-webkit-scrollbar {
-	  width: 0px;  /* remove scrollbar space */
-	  background: transparent;  /* optional: just make scrollbar invisible */
-		}
-	  /* optional: show position indicator in red */
-	  ::-webkit-scrollbar-thumb {
-	  width: -1px;  /* remove scrollbar space */
-	  background: rgba(0,0,0,0);  /* optional: just make scrollbar invisible */
-	  opacity: .0;
-	  color:rgba(0,0,0,0);  
-	   }
   body{
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
@@ -555,5 +544,43 @@
   .pet{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap:12px;
+    margin:10px 3vw;
+  }
+  .pets{
+    background:linear-gradient(84.83deg, rgba(255, 27, 27, 0) -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, #FE6969 100%);
+    width:570.3px;
+    padding-bottom:10px ;
+    border-radius: 10px;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .pets__info{
+    text-align: center;
+  }
+  .pets__buttons{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  .pets__buttons form button{
+    width:100%;
+    padding: 15px 20px;
+    font-size:17px;
+    border-radius: 500px;
+    border:1px solid #FE6969;
+    background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
+    color:#fff;
+    margin-bottom: 5px;
+    transition: all 0.5s;
+  }
+  .pets__buttons form button:hover{
+    filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+    cursor: pointer;
   }

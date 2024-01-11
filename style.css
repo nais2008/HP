@@ -2,25 +2,10 @@
  html {
   overflow-x: hidden;
   }
- ::-webkit-scrollbar {
-width: 0px;  /* remove scrollbar space */
-background: transparent;  /* optional: just make scrollbar invisible */
-  }
-/* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-width: -1px;  /* remove scrollbar space */
-background: rgba(0,0,0,0);  /* optional: just make scrollbar invisible */
-opacity: .0;
-color:rgba(0,0,0,0);  
- }
  
  body{
 font-family: 'Montserrat', sans-serif;
 background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
--moz-border-bottom-colors: #000;
--moz-border-top-colors: #000;
--moz-border-left-colors: #000;
--moz-border-right-colors: #000;
  }
  .vhod{
 	margin-left:100rem;
