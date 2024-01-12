@@ -16,6 +16,9 @@
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
   }
+  button, input{
+    font-family: 'Montserrat', sans-serif;
+  }
   a{
   text-decoration: none;
   }
@@ -361,7 +364,6 @@
   background:rgba(0,0,0,0.5); 
   border-radius:0.5rem;
   height:22rem;
-  margin-top:7rem;
   }
  
 	.box {
@@ -536,6 +538,7 @@
 	transform: translateX(-50%);
 	transition: font-size .2s;
 	margin-top:10px;
+  margin-bottom: 1.5rem;
   }
   .sozdat:hover{
 	cursor: pointer;
@@ -570,7 +573,7 @@
     flex-direction: column;
     width: 90%;
   }
-  .pets__buttons form button{
+  .pets__buttons button{
     width:100%;
     padding: 15px 20px;
     font-size:17px;
@@ -579,9 +582,125 @@
     background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
     color:#fff;
     margin-bottom: 5px;
-    transition: all 0.5s;
+    transition: all 0.2s;
   }
-  .pets__buttons form button:hover{
+  .pets__buttons button:hover{
     filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
     cursor: pointer;
   }
+  .pets__img{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .pets__img img{
+    width:90%;
+    border-radius: 10px;
+    height:250px;
+    background-size: cover;
+}
+
+/* Modal window */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background: linear-gradient(90deg, #FFA700 0%, rgb(255, 147, 0) 100%, #FF5600 100%);;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #FFA700;
+  border-radius: 10px;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #fff;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.close:hover,
+.close:focus {
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal_product aside{
+  display: flex;
+  align-items: center;
+}
+.modal_product p{
+  font-weight: 600;
+  font-size: 18px;
+}
+.modal_product aside input[type=text]{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width:100%;
+  height:40px;
+  border: none;
+  padding: 10px 25px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: all 0.2s;
+}
+.modal_product aside input::placeholder{
+  color: #ddd;
+}
+.modal_product aside input[type=text]:active,
+.modal_product aside input[type=text]:focus{
+  outline: none;
+	border:none;
+  filter: drop-shadow(rgba(0,0,0,0.3) 0 0 5px);
+}
+.modal_product aside textarea{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width:100%;
+  height:100px;
+  border: none;
+  padding: 10px 25px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: all 0.2s;
+}
+.modal_product aside textarea::placeholder{
+  color: #ddd;
+}
+.modal_product aside textarea:active,
+.modal_product aside textarea:focus{
+  outline: none;
+	border:none;
+  filter: drop-shadow(rgba(0,0,0,0.3) 0 0 5px);
+}
+.modal_product aside button{
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 20px;
+  font-size:17px;
+  border-radius: 500px;
+  border:1px solid #FE6969;
+  background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
+  color:#fff;
+  transition: all 0.2s;
+}
+.modal_product aside button:hover{
+  filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+  cursor: pointer;
+}

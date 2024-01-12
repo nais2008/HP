@@ -1,12 +1,4 @@
 <?php 
-/*
-UPDATE `user` 
-inner JOIN pet_1 on user.id_pet = pet.id 
-inner JOIN pet p1 on pet.id = pet_1.id
-inner JOIN pet p2 on pet.view_id = vied.id 
-SET user.`FIO`='noname',user.`date`='1212-12-12', vied.`vied`='vid', pet.`nickname` = 'nn' 
-WHERE `log_in`= 'gfgfgdf'
-*/
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "hp");
 if($conn->connect_error){
@@ -23,10 +15,10 @@ if($conn->connect_error){
 		$row = $result->fetch_assoc();
        
 
-	  setcookie('izm', 0);
-	  setcookie('izm1', 0);
-	  setcookie('izm2', 0);
-	  setcookie('izm3', 0);
+	  setcookie('izm', 0, time() + 1209600);
+	  setcookie('izm1', 0, time() + 1209600);
+	  setcookie('izm2', 0, time() + 1209600);
+	  setcookie('izm3', 0, time() + 1209600);
 
 	  if ((isset($_POST['izm']))&&(isset($_POST['izm1']))&&(isset($_POST['izm2']))&&(isset($_POST['izm3']))&&(isset($_POST['soh']))) {
 		$row['FIO'] = $_POST['izm'];
@@ -45,10 +37,6 @@ if($conn->connect_error){
 				  		WHERE log_in= '$coc'";
 		$result = mysqli_query($conn, $query);    	 
 	  }
-
-
-
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -100,7 +88,6 @@ if($conn->connect_error){
 		<div class='div1 animate__animated animate__bounceInDown' >
 				<img src='https://sun9-20.userapi.com/impf/c633817/v633817482/2f641/B6ALCBXVQzk.jpg?size=500x500&quality=96&sign=a220c3c6f4feedad2b1760e83250cac9&type=album' class='img1'>
 				<img src='https://cdn-icons-png.flaticon.com/512/2527/2527195.png' class='img2'>
-				
 				<?php
 				   $coc=$_COOKIE['logname'];
 				   $query = "SELECT * FROM `user` WHERE `log_in`='$coc'";      

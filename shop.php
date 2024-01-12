@@ -95,6 +95,9 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 							if (strlen($row['description']) > 10){
 								echo "
 								<article class='pets'>
+									<section class='pets__img'>
+										<img src='", $row['img'], "' alt=''>
+									</section>
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
 										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) , '...', "</span></p>
@@ -102,10 +105,10 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 									</section>
 									<section class='pets__buttons'>
 										<form id='form_for_info_pet' method='post'>
-											<button type='submit' form='form_for_info_pet'>Больше инфрмации</button>
+											<button type='submit' form='form_for_info_pet'>Больше информации</button>
 										</form>
 										<form id='form_korzina' method='post'>
-											<button type='submit' form='form_korzina'>Добавить в корзину</button>
+											<button type='submit' form='form_korzina' name='dobav'>Добавить в корзину</button>
 										</form>
 									</section>
 								</article>
@@ -114,17 +117,18 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 							} else{
 								echo "
 								<article class='pets'>
+									<section class='pets__img'>
+										<img src='", $row['img'], "' alt=''>
+									</section>
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
 										<p><b>Описание: </b><span>",  $row['description'], "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
 									<section class='pets__buttons'>
-										<form id='form_for_info_pet' method='post'>
-											<button type='submit' form='form_for_info_pet'>Больше инфрмации</button>
-										</form>
+										<button>Больше информации</button>
 										<form id='form_korzina' method='post'>
-											<button type='submit' form='form_korzina'>Добавить в корзину</button>
+											<button type='submit' form='form_korzina' name='dobav'>Добавить в корзину</button>
 										</form>
 									</section>
 								</article>
@@ -136,7 +140,44 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 				?>
 			</div>
 			<section class="form_sozdat">
-				<button type='submit' class='sozdat'>Создать объявление</button>
+				<button type='button' class='sozdat' id='myBtn'>Создать объявление</button>
+
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<section class='modal_product'>
+							<aside>
+								<p>Изоброжение : </p>
+								<form action="shop.php" id="form_modal" method="post">
+									<input type="file" 
+											  form='form_modal' 
+											  name='image_file_modal' >
+								</form>
+							</aside>
+							<aside>
+								<input type="text" 
+										  name="nickname_modal" 
+										  form="form_modal" 
+										  placeholder="Введите кличку :">
+							</aside>
+							<aside>
+								<input type="text" 
+										  name="price_modal" 
+										  form="form_modal" 
+										  placeholder="Введите цену :"
+										  class='input_modal'>
+							</aside>
+							<aside>
+								<textarea name="description_modal" 
+												form="form_modal"
+												placeholder="Введите описание : "></textarea>
+							</aside>
+							<aside>
+								<button type="submit" form="form_modal">Создать</button>
+							</aside>
+						</section>
+					</div>
+				</div>
 			</section>
 		</div>
 	</div>
@@ -167,35 +208,16 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 <button class="back-to-top hidde">⬆</button>
 
 <script src="js/wow.min.js"></script>
-<script>		 new WOW().init();		</script>
-<script type='text/javascript'>
-	
-const showOnPx = 100;
-const backToTopButton = document.querySelector(".back-to-top")
-
-const scrollContainer = () => {
-  return document.documentElement || document.body;
-};
-
-document.addEventListener("scroll", () => {
-  if (scrollContainer().scrollTop > showOnPx) {
-    backToTopButton.classList.remove("hidden")
-  } else {
-    backToTopButton.classList.add("hidden")
-  }
-})
-
-const goToTop = () => {
-	document.body.scrollIntoView({
-    behavior: "smooth",
-  });
-};
-
-backToTopButton.addEventListener("click", goToTop)
-
+<script>
+	new WOW().init();
 </script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" 
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule 
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type='text/javascript' 
+			src="js/main_shop.js">
+</script>
 </body>
 
 </html>

@@ -7,6 +7,9 @@
 font-family: 'Montserrat', sans-serif;
 background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
  }
+ button, input{
+  font-family: 'Montserrat', sans-serif;
+}
  .vhod{
 	margin-left:100rem;
 	margin-top:-12.5rem;
