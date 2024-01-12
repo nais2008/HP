@@ -296,7 +296,7 @@ font-family: 'Montserrat', sans-serif;
  line-height: 2.313rem;
  /* identical to box height */
  color: #fff;
- border:none;
+ border:1px solid #FE6969;
  }
  .button:hover,
  .button1:hover,

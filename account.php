@@ -172,7 +172,7 @@ function redact(){
 	textElement1.innerHTML = '<input type = "date" class="form-style1" form="home" placeholder="Новое ДР" name="izm1">';
 	textElement2.innerHTML = '<input type = "text" class="form-style2" form="home" placeholder="Новый питомец" name="izm2">';
 	textElement3.innerHTML = '<input type = "text" class="form-style3" form="home" placeholder="Новая кличка питомца" name="izm3">';
-	cloze.innerHTML = '<input type = "submit" class="cloze1" value="&#10008;" form="home">';
+	cloze.innerHTML = '<input type = "submit" class="cloze1" value="&#10008" form="home">';
 	soh.innerHTML = '<input type = "submit" class="button"  value="Сохранить" form="home" name="soh"> ';
 }
 

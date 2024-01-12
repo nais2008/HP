@@ -460,7 +460,7 @@ background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%,
 	cursor:auto;
   }
   .form-style::placeholder{
-    color:#fff;
+    color:#ccc;
   }
   .div3{
     width: 10rem;
