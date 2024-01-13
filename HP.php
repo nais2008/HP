@@ -62,7 +62,7 @@ if($conn->connect_error){
 <body alink="#000" link="#000" vlink="#000">
 	
 <header class='animate__animated animate__fadeInDown wow'>
-	<input type="submit" class="div2" value="HP" src="https://www.mk.ru/upload/entities/2022/04/01/07/articlesImages/image/20/09/e8/52/e2933b1e0d643269e2e17de2d90df584.jpg">
+	<input type="submit" class="div2" value="HP">
 	<span class="p5"><a href="HP.php">Happy Pet</a></span>
 
 	<span id="p1"><a href="HP.php">Главная</a></span>
@@ -77,7 +77,7 @@ if($conn->connect_error){
 	<div class="div5">
 		<img src="photo\shopping-cart(2).png" class="img5">
 	</div>
-	<span class="p6"><a href="https://memepedia.ru/wp-content/uploads/2020/03/memy-marta-768x512.jpg">9 765 р. ▼</a></span>
+	<span class="p6"><a href="card.php">9 765 р. ▼</a></span>
 	<?php
 		if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']))&&(isset($_COOKIE['izm3']))){
 			echo "<div class='box'><a href='account.php'><img src='https://sun9-20.userapi.com/impf/c633817/v633817482/2f641/B6ALCBXVQzk.jpg?size=500x500&quality=96&sign=a220c3c6f4feedad2b1760e83250cac9&type=album'></a></div>";
@@ -144,7 +144,7 @@ if($conn->connect_error){
 <div class="div51">
 	<img src="photo\shopping-cart(2).png" class="img51">
 </div>
-<span class="p61"><a href="https://memepedia.ru/wp-content/uploads/2020/03/memy-marta-768x512.jpg">9 765 р.▼</a></span >
+<span class="p61"><a href="card.php">9 765 р.▼</a></span >
 
 <a href="https://www.servicetrust.ru/images/VK%20Logo_blue_L.png" target="_blank"><img src="photo/vk.png" class="img6"></a><br>
 <a href="https://z-gorodok.ru/wp-content/uploads/2022/03/telegram-icon-on-transparent-background-png.png" target="_blank"><img src="photo/telegram.jpg" class="img7"></a>

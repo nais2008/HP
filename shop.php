@@ -50,33 +50,31 @@ if($conn->connect_error){
 </head>
 
 <body alink="#000" link="#000" vlink="#000">
-	<header class='animate__animated animate__fadeInDown wow'>
-<input type="submit" class="div2" value="HP" form='index'>
-<span class="p5"><a href="HP.php">Happy Pet</a></span>
+<header class='animate__animated animate__fadeInDown wow'>
+	<input type="submit" class="div2" value="HP" form='index'>
+	<span class="p5"><a href="HP.php">Happy Pet</a></span>
 
-<span id="p1"><a href="HP.php">Главная</a></span>
-<div id="div1"></div>
+	<span id="p1"><a href="HP.php">Главная</a></span>
+	<div id="div1"></div>
 
-<span id="p2"><a href="shop.php">Друзья</a></span>
+	<span id="p2"><a href="shop.php">Друзья</a></span>
 
-<span id="p3"><a href="info.php">О сервисе</a></span>
+	<span id="p3"><a href="info.php">О сервисе</a></span>
 
-<span id="p4"><a href="check_conatccts.php">Контакты</a></span>
+	<span id="p4"><a href="check_conatccts.php">Контакты</a></span>
 
-<div class="div5">
-	<img src="photo\shopping-cart(2).png" class="img5">
-</div>
-<span class="p6"><a href="https://memepedia.ru/wp-content/uploads/2020/03/memy-marta-768x512.jpg">9 765 р.   ▼</a></span>
+	<div class="div5">
+		<img src="photo\shopping-cart(2).png" class="img5">
+	</div>
+	<span class="p6"><a href="card.php">9 765 р.   ▼</a></span>
 
-
-<?php
-if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']))&&(isset($_COOKIE['izm3']))){
-	echo "<div class='box'><a href='account.php'><img src='https://sun9-20.userapi.com/impf/c633817/v633817482/2f641/B6ALCBXVQzk.jpg?size=500x500&quality=96&sign=a220c3c6f4feedad2b1760e83250cac9&type=album'></a></div>";
-}else{
-	echo '<a href="nn.php" class="vhod"></a>';
-}
-?>
-
+	<?php
+		if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']))&&(isset($_COOKIE['izm3']))){
+			echo "<div class='box'><a href='account.php'><img src='https://sun9-20.userapi.com/impf/c633817/v633817482/2f641/B6ALCBXVQzk.jpg?size=500x500&quality=96&sign=a220c3c6f4feedad2b1760e83250cac9&type=album'></a></div>";
+		}else{
+			echo '<a href="nn.php" class="vhod"></a>';
+		}
+	?>
 </header>
 
 <main>
@@ -100,7 +98,7 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 									</section>
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
-										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) , '...', "</span></p>
+										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) .'...', "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
 									<section class='pets__buttons'>
@@ -137,6 +135,31 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 							}
 						}
 					}
+
+					if (isset($_POST['sozdat_product'])){
+						if (isset($_POST['nickname_modal']) &&
+							 isset($_POST['price_modal']) &&
+							 isset($_POST['description_modal']) &&
+							 isset($_POST['file_modal'])){
+							$nic = $_POST['nickname_modal'];
+							$price = $_POST['price_modal'];
+							$des = $_POST['description_modal'];
+							$img = $_POST['file_modal'];
+
+							$query = "INSERT INTO `pet`(`id`, `name`, `description`, `price`, `img`) 
+											VALUES ('', '$nic', '$des', '$price', 'photo/img_shop/$img')";
+							mysqli_query($conn, $query);
+						}
+					} 
+					if(isset($_POST['dobav'])){
+						$name = $row['name'];
+						$descr = $row['description'];
+						$pr = $row['name'];
+
+						$query = "INSERT INTO `card`(`id`, `name`, `description`, `price`)
+										VALUES ('', '$name', '$des', '$pr')";
+						mysqli_query($conn, $query);
+					}
 				?>
 			</div>
 			<section class="form_sozdat">
@@ -149,9 +172,13 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 							<aside>
 								<p>Изоброжение : </p>
 								<form action="shop.php" id="form_modal" method="post">
-									<input type="file" 
-											  form='form_modal' 
-											  name='image_file_modal' >
+									<div class="form__group">
+										<div class="file-input-wrapper js-file-input-controller">
+											<button>Загрузить</button>
+											<input type="text" disabled placeholder="Выберите файл...">
+											<input type="file" form='form_modal' name='file_modal'>
+										</div>
+									</div>
 								</form>
 							</aside>
 							<aside>
@@ -173,7 +200,9 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 												placeholder="Введите описание : "></textarea>
 							</aside>
 							<aside>
-								<button type="submit" form="form_modal">Создать</button>
+								<div class='nado'>
+									<button type="submit" form="form_modal" name='sozdat_product'>Создать</button>
+								</div>
 							</aside>
 						</section>
 					</div>
@@ -196,7 +225,7 @@ if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']
 <div class="div51">
 	<img src="photo\shopping-cart(2).png" class="img51">
 </div>
-<span class="p61"><a href="https://memepedia.ru/wp-content/uploads/2020/03/memy-marta-768x512.jpg">9 765 р.▼</a></span >
+<span class="p61"><a href="card.php">9 765 р.▼</a></span >
 
 <a href="https://www.servicetrust.ru/images/VK%20Logo_blue_L.png" target="_blank"><img src="photo/vk.png" class="img6"></a><br>
 <a href="https://z-gorodok.ru/wp-content/uploads/2022/03/telegram-icon-on-transparent-background-png.png" target="_blank"><img src="photo/telegram.jpg" class="img7"></a>

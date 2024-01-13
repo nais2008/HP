@@ -44,7 +44,7 @@
 
     <header class='animate__animated animate__fadeInDown'>
         <div class="header">
-            <input type="submit" class="div2" value="HP" src="https://www.mk.ru/upload/entities/2022/04/01/07/articlesImages/image/20/09/e8/52/e2933b1e0d643269e2e17de2d90df584.jpg">
+            <input type="submit" class="div2" value="HP">
             <span class="p5"><a href="HP.php">Happy Pet</a></span>
         
             <span id="p1"><a href="HP.php">Главная</a></span>
@@ -59,7 +59,7 @@
             <div class="div5">
                 <img src="photo\shopping-cart(2).png" class="img5">
             </div>
-            <span class="p6"><a href="https://memepedia.ru/wp-content/uploads/2020/03/memy-marta-768x512.jpg">9 765 р.   ▼</a></span>
+            <span class="p6"><a href="card.php">9 765 р.   ▼</a></span>
         
             <?php
                 if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']))&&(isset($_COOKIE['izm3']))){
@@ -98,14 +98,14 @@
         
         <span id="p21"><a href="shop.php">Друзья</a></span>
         
-        <span id="p31"><a href="info.css">О сервисе</a></span>
+        <span id="p31"><a href="info.php">О сервисе</a></span>
         
         <span id="p41"><a href="check_conatccts.php">Контакты</a></span>
         
         <div class="div51">
             <img src="photo\shopping-cart(2).png" class="img51">
         </div>
-        <span class="p61"><a href="https://memepedia.ru/wp-content/uploads/2020/03/memy-marta-768x512.jpg">9 765 р.▼</a></span >
+        <span class="p61"><a href="card.php">9 765 р.▼</a></span >
         
         <a href="https://www.servicetrust.ru/images/VK%20Logo_blue_L.png" target="_blank"><img src="photo/vk.png" class="img6"></a><br>
 <a href="https://z-gorodok.ru/wp-content/uploads/2022/03/telegram-icon-on-transparent-background-png.png" target="_blank"><img src="photo/telegram.jpg" class="img7"></a>

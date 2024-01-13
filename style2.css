@@ -16,7 +16,7 @@
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
   }
-  button, input{
+  button, input, textarea{
     font-family: 'Montserrat', sans-serif;
   }
   a{
@@ -532,17 +532,16 @@
 	border-radius: 500px;
 	border:none;
 	background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
-	filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
 	color:#fff;
 	margin-left:50%;
 	transform: translateX(-50%);
-	transition: font-size .2s;
+	transition: all .2s;
 	margin-top:10px;
   margin-bottom: 1.5rem;
   }
   .sozdat:hover{
 	cursor: pointer;
-	font-size: 25px;
+  filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
   }
   .pet{
     display: flex;
@@ -611,17 +610,18 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   background: linear-gradient(90deg, #FFA700 0%, rgb(255, 147, 0) 100%, #FF5600 100%);;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 14% auto;
   padding: 20px;
   border: 1px solid #FFA700;
   border-radius: 10px;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 60%; /* Could be more or less, depending on screen size */
+  height:380px;
 }
 
 /* The Close Button */
@@ -689,7 +689,11 @@
 	border:none;
   filter: drop-shadow(rgba(0,0,0,0.3) 0 0 5px);
 }
-.modal_product aside button{
+.nado{
+  width: 100%;
+}
+.modal_product aside .nado button{
+  position: relative;
   margin-left: 50%;
   transform: translateX(-50%);
   padding: 15px 20px;
@@ -703,4 +707,46 @@
 .modal_product aside button:hover{
   filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
   cursor: pointer;
+}
+
+.form__group{
+  position: relative;
+}
+.form__group .file-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form__group .file-input-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: #000;
+  width:35%;
+  height: 100%;
+  cursor: pointer;
+}
+.form__group .file-input-wrapper button {
+  font-style: normal;
+  font-weight: 600;
+  padding: 15px 20px;
+  font-size:17px;
+  border-radius: 500px;
+  border:1px solid #FE6969;
+  background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
+  color:#fff;
+  transition: all 0.2s;
+  margin: 0 10px;
+}
+.form__group .file-input-wrapper button:hover{
+  cursor: pointer;
+}
+.form__group .file-input-wrapper input[type=text]{
+  width:100%;
+}
+.form__group .file-input-wrapper input:focus {
+  border: none;
+  outline: none;
 }

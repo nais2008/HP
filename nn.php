@@ -4,36 +4,22 @@ $conn = mysqli_connect("localhost", "root", "", "hp");
 if($conn->connect_error){
     die("Ошибка: " . $conn->connect_error);
 }
-//~ echo "Подключение успешно установлено";
-
- // текст SQL запроса, который будет передан базе
       $query = 'SELECT * FROM `shop`';
-
-   // выполняем запрос к базе данных
       $result = mysqli_query($conn, $query);
-
-   // выводим полученные данные
-      
       
 if ((isset($_POST['logemail']))&&(isset($_POST['logname']))&&(isset($_POST['logpass']))&&(isset($_POST['input2']))) {
-     	$o=0; 
-   // текст SQL запроса, который будет передан базе
+      $o=0; 
       $query = 'SELECT * FROM `user`';
-   // выполняем запрос к базе данных
       $result = mysqli_query($conn, $query);
         while($row = $result->fetch_assoc()){
 			if (($row['log_in'] == $_POST['logname']) || ($row['email'] == $_POST['logemail'])){
 			$o=1;
 			}
-
 		}
 		if($o==1){
 			echo '<h2 class="osh">Такой аккаунт уже существует</h2>';
 		}
 		else{
-				//~ $query = 'SELECT log_in, password FROM `user`';
-				//~ // выполняем запрос к базе данных
-				//~ $result = mysqli_query($conn, $query);
 				$log=$_POST['logname'];
 				$pas=$_POST['logpass'];
 				$email=$_POST['logemail'];
@@ -42,13 +28,11 @@ if ((isset($_POST['logemail']))&&(isset($_POST['logname']))&&(isset($_POST['logp
 				setcookie("logemail", $_POST['logemail']);
 				
 				$p = "INSERT INTO `user`(`id`, `log_in`, `password`, `FIO`, `date`, `email`,`nickname_pet`, `vid_pet`) VALUES ('','$log','$pas','','','$email','', '')";
-				//~ $result = mysqli_query($conn, $p);
 				if(mysqli_query($conn, $p)){
 					echo "Данные успешно добавлены";
 				} else{
 					echo "Ошибка: " . mysqli_error($conn);
 				}
-				
 				
 				$new_url = 'account.php';
 				header('Location: '.$new_url);
@@ -56,41 +40,30 @@ if ((isset($_POST['logemail']))&&(isset($_POST['logname']))&&(isset($_POST['logp
 		
 	}
 	
-			
-    
 if ((isset($_POST['logname1']))&&(isset($_POST['logpass1']))&&(isset($_POST['input1']))){
 	$a = 0;
 
-	 // текст SQL запроса, который будет передан базе
-      $query = 'SELECT log_in, password FROM `user`';
-   // выполняем запрос к базе данных
-      $result = mysqli_query($conn, $query);
-        while($row = $result->fetch_assoc()){
-			if (($row['log_in']==$_POST['logname1']) && ($row['password']==$_POST['logpass1'])){
-				$a=1;
-			}
-			
-
+    $query = 'SELECT log_in, password FROM `user`';
+	$result = mysqli_query($conn, $query);
+	while($row = $result->fetch_assoc()){
+		if (($row['log_in']==$_POST['logname1']) && ($row['password']==$_POST['logpass1'])){
+			$a=1;
+		}
 	}	
 	if ($a == 0) {
-			echo '<h2 class="osh">Не правильно введен логин или пароль</h2>';
-	
-    }
-    else{
+		echo '<h2 class="osh">Не правильно введен логин или пароль</h2>';
+    } else{
+		$log=$_POST['logname1'];
+		$pas=$_POST['logpass1'];
 		
-		
-				$log=$_POST['logname1'];
-				$pas=$_POST['logpass1'];
+		setcookie("logname", $_POST['logname1']);
+		setcookie("logpass", $_POST['logpass1']);
 				
-				setcookie("logname", $_POST['logname1']);
-				setcookie("logpass", $_POST['logpass1']);
-				
-		 $new_url = 'account.php';
-		  header('Location: '.$new_url);
-			 }
+		$new_url = 'account.php';
+		header('Location: '.$new_url);
+	}
 }
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">

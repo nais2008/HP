@@ -125,10 +125,9 @@ if($conn->connect_error){
  <div class='soh'>
 	 <input type='submit' value="Редактировать &#9998;" onclick="redact()" class='button' form='none'>
 </div>
-       
-<form action="HP.php" method="post"  id='data'>			
-	<input type='submit' value="Назад" form="data" class='button1' >
-</form>
+       	
+<input type='button' value="Назад" form="data" class='button1' onclick="history.back()" >
+
 
 <div class='cloze' onclick="cloze()"></div>
 

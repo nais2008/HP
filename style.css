@@ -645,7 +645,6 @@ color:#039600;
 width: 40.688rem;
 height: 10.563rem;
 background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
-filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
 border-radius: 6.875rem;
  outline: none;
 position: relative;
@@ -657,7 +656,12 @@ line-height: 2.313rem;
 /* identical to box height */
 color: #FFFFFF;
 left:10rem;
+transition: all .2s;
 	}
+.div3:hover{
+  filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+  cursor: pointer;
+}
 		.p1{
 position: relative;
 top: -8rem;

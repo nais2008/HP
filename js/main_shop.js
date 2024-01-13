@@ -49,3 +49,42 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// ---------------------------------------------------------------------------
+// Загрузка файла
+
+class FileInputController {
+  constructor() {
+    this.fileInputs = document.querySelectorAll(".js-file-input-controller");
+    if (this.fileInputs.length === 0) return;
+
+    this.init(this.fileInputs, this.handleFileInput);
+  }
+
+  init(elements, func) {
+    for (const el of elements) {
+      func(el);
+    }
+  }
+
+  handleFileInput(fileInput) {
+    const uploadButton = fileInput.querySelector("button");
+    const inputFileField = fileInput.querySelector("input[type='file']");
+    const inputTextField = fileInput.querySelector("input[type='text']");
+
+    // Open select file dialog if button is clicked
+    uploadButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      inputFileField.click();
+    });
+
+    // Show name of selected file in text input
+    inputFileField.addEventListener("change", () => {
+      if (inputFileField.files) {
+        inputTextField.value = inputFileField.files[0].name;
+      }
+    });
+  }
+}
+
+new FileInputController();
