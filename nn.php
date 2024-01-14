@@ -133,7 +133,7 @@ if ((isset($_POST['logname1']))&&(isset($_POST['logpass1']))&&(isset($_POST['inp
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
 											<input type="submit" value="Войти" form="form" class='imput1' name="input1">
-											<input type="submit" value="Назад" form="index" id='nazad'>
+											<input type="submit" value="Назад" onclick="history.back()" id='nazad'>
                             				<p class="mb-0 mt-4 text-center"><a class="link">Забыли пароль?</a></p>
 				      					</div>
 			      					</div>
@@ -155,7 +155,7 @@ if ((isset($_POST['logname1']))&&(isset($_POST['logpass1']))&&(isset($_POST['inp
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
 											<input type="submit" value="Зарегистрироваться" form="form" class='imput1' name="input2" style='top:-1rem;'>
-											<input type="submit" value="Назад" form="index" id='nazad' style="left:0;top:-1rem;">
+											<input type="submit" value="Назад" onclick="history.back()" id='nazad' style="left:0;top:-1rem;">
 				      					</div>
 			      					</div>
 			      				</div>
@@ -168,7 +168,6 @@ if ((isset($_POST['logname1']))&&(isset($_POST['logpass1']))&&(isset($_POST['inp
 	</div>
 	
 <form action="nn.php" method="post" id="form"></form>
-<form action="HP.php" method="post" id="index"></form>
 </body>
 
 </html>

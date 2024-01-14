@@ -1,22 +1,10 @@
 <?php 
-// session_start();
+session_start();
 $conn = mysqli_connect("localhost", "root", "", "hp");
 if($conn->connect_error){
     die("Ошибка: " . $conn->connect_error);
 }
 
-if(isset($_POST['page'])){ 	 
-    $pages=array("products", "cart");
-
-    if(in_array($_POST['page'], $pages)) { 
-        $_page=$_POST['page']; 
-    }else{ 
-        $_page="shop"; 
-    } 
-     
-}else{ 
-    $_page="shop"; 
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,10 +77,12 @@ if(isset($_POST['page'])){
             ?>
         </header>
     </div>
-
+<br><br><br>
     <main>
         <div class="container">
-                
+               <?php
+                    
+               ?> 
         </div>
     </main>
 

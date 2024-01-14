@@ -34,11 +34,13 @@ color:rgba(0,0,0,0);
 }
 
 .img1{
+  position: relative;
 	border-radius:50%;
 	width:15rem;
 	height:15rem;
 	margin-left:2rem;
-	margin-top:2rem;
+	margin-top:2.5rem;
+  top:1.5rem;
   box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 

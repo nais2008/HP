@@ -4,6 +4,26 @@ $conn = mysqli_connect("localhost", "root", "", "hp");
 if($conn->connect_error){
     die("Ошибка: " . $conn->connect_error);
 }
+
+
+
+if (isset($_POST['sozdat_product'])){
+	if (isset($_POST['nickname_modal']) &&
+			isset($_POST['price_modal']) &&
+			isset($_POST['description_modal']) &&
+			isset($_POST['file_modal'])){
+		$nic = $_POST['nickname_modal'];
+		$price = $_POST['price_modal'];
+		$des = $_POST['description_modal'];
+		$img = $_POST['file_modal'];
+
+		$query = "INSERT INTO `pet`(`id`, `name`, `description`, `price`, `img`) 
+						VALUES ('', '$nic', '$des', '$price', 'photo/img_shop/$img')";
+		mysqli_query($conn, $query);
+		
+		header('Location: shop.php');
+	}
+} 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -66,7 +86,7 @@ if($conn->connect_error){
 	<div class="div5">
 		<img src="photo\shopping-cart(2).png" class="img5">
 	</div>
-	<span class="p6"><a href="card.php">9 765 р.   ▼</a></span>
+	<span class="p6"><a href="card.php">0 р.   ▼</a></span>
 
 	<?php
 		if ((isset($_COOKIE['izm']))&&(isset($_COOKIE['izm1']))&&(isset($_COOKIE['izm2']))&&(isset($_COOKIE['izm3']))){
@@ -81,84 +101,72 @@ if($conn->connect_error){
 	<div class="container">
 		<div class="product">
 			<section class="form_poisk">
-				<input type='text' class='poisk' placeholder="Поиск">
+				<input type='text' class='poisk' id='search' placeholder="Поиск">
 			</section>
-			<div class="pet">
+			<div class="pet" id='output'>
 				<?php
-					$query = "SELECT * FROM `pet`";      
+			    	$query = "SELECT * FROM `pet`";      
 					$result = mysqli_query($conn, $query);   
 					
-					while($row = $result->fetch_assoc()){
+					while($row = $result -> fetch_assoc()){
 						if (isset($row)){
-							if (strlen($row['description']) > 10){
+							if (strlen($row['description']) > 20){
 								echo "
 								<article class='pets'>
 									<section class='pets__img'>
 										<img src='", $row['img'], "' alt=''>
 									</section>
+
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
-										<p><b>Описание: </b><span>",  substr($row['description'],  0, 10) .'...', "</span></p>
+										<p><b>Описание: </b><span>",  substr($row['description'],  0, 39) .'...', "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
+
+									<input type='number' id='pets_count_".$row['id']."' placeholder='Количество: '>
+
 									<section class='pets__buttons'>
 										<form id='form_for_info_pet' method='post'>
 											<button type='submit' form='form_for_info_pet'>Больше информации</button>
 										</form>
-										<form id='form_korzina' method='post'>
-											<button type='submit' form='form_korzina' name='dobav'>Добавить в корзину</button>
-										</form>
+										<a class='add_pr'  name='dobav' data-value='".$row['id']."'>Добавить в корзину</a>
 									</section>
 								</article>
 							";
 							continue;
 							} else{
 								echo "
-								<article class='pets'>
+								<article class='pets' id='pets_".$row['id']."'>
 									<section class='pets__img'>
 										<img src='", $row['img'], "' alt=''>
 									</section>
+
 									<section class='pets__info'>
 										<h2>Кличка: <span>", $row['name'], "</span></h2>
 										<p><b>Описание: </b><span>",  $row['description'], "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
+
+									<input type='number' id='p".$row['id']."' placeholder='Количество: '>
+
 									<section class='pets__buttons'>
 										<button>Больше информации</button>
-										<form id='form_korzina' method='post'>
-											<button type='submit' form='form_korzina' name='dobav'>Добавить в корзину</button>
-										</form>
+										<a class='add_pr' name='dobav' data-value='".$row['id']."' href='#'>Добавить в корзину</a>
 									</section>
+
+									
 								</article>
 							";
 							continue;
 							}
+						} else if(!isset($row)){
+							echo "
+								<article class='non_pets'>
+									<h2 align='center'>К сожелению объявлений нет...</h2>
+								</article>
+							";
+							continue;
 						}
-					}
-
-					if (isset($_POST['sozdat_product'])){
-						if (isset($_POST['nickname_modal']) &&
-							 isset($_POST['price_modal']) &&
-							 isset($_POST['description_modal']) &&
-							 isset($_POST['file_modal'])){
-							$nic = $_POST['nickname_modal'];
-							$price = $_POST['price_modal'];
-							$des = $_POST['description_modal'];
-							$img = $_POST['file_modal'];
-
-							$query = "INSERT INTO `pet`(`id`, `name`, `description`, `price`, `img`) 
-											VALUES ('', '$nic', '$des', '$price', 'photo/img_shop/$img')";
-							mysqli_query($conn, $query);
-						}
-					} 
-					if(isset($_POST['dobav'])){
-						$name = $row['name'];
-						$descr = $row['description'];
-						$pr = $row['name'];
-
-						$query = "INSERT INTO `card`(`id`, `name`, `description`, `price`)
-										VALUES ('', '$name', '$des', '$pr')";
-						mysqli_query($conn, $query);
 					}
 				?>
 			</div>
@@ -225,14 +233,11 @@ if($conn->connect_error){
 <div class="div51">
 	<img src="photo\shopping-cart(2).png" class="img51">
 </div>
-<span class="p61"><a href="card.php">9 765 р.▼</a></span >
+<span class="p61"><a href="card.php">0 р.▼</a></span >
 
 <a href="https://www.servicetrust.ru/images/VK%20Logo_blue_L.png" target="_blank"><img src="photo/vk.png" class="img6"></a><br>
 <a href="https://z-gorodok.ru/wp-content/uploads/2022/03/telegram-icon-on-transparent-background-png.png" target="_blank"><img src="photo/telegram.jpg" class="img7"></a>
 </footer>
-
-<form action='shop.php' id='form' method='post'></form>
-<form action='HP.php' id='index' method='post'></form>
 
 <button class="back-to-top hidde">⬆</button>
 
@@ -246,6 +251,41 @@ if($conn->connect_error){
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type='text/javascript' 
 			src="js/main_shop.js">
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous">
+</script>
+<script>
+$(document).ready(function() {
+	$("#search").keyup(function() {
+		var query = $(this).val();
+		if (query != "") {
+			$.ajax({
+				url: 'poisk_shop.php',
+				method: 'POST',
+				dаta: {
+					query: query
+				},
+				success: function(data) {
+
+					$('#output').html(data);
+					$('#output').css('display', 'block');
+
+					$("#search").focusout(function() {
+						$('#output').css('display', 'none');
+					});
+					$("#search").focusin(function() {
+						$('#output').css('display', 'block');
+					});
+				}
+			});
+		} else {
+			$('#output').css('display', 'none');
+		}
+	});
+});
 </script>
 </body>
 

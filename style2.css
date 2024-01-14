@@ -572,7 +572,8 @@
     flex-direction: column;
     width: 90%;
   }
-  .pets__buttons button{
+  .pets__buttons button,
+  .pets__buttons a{
     width:100%;
     padding: 15px 20px;
     font-size:17px;
@@ -583,7 +584,12 @@
     margin-bottom: 5px;
     transition: all 0.2s;
   }
-  .pets__buttons button:hover{
+  .pets__buttons a{
+    text-align: center;
+    width: 92%;
+  }
+  .pets__buttons button:hover,
+  .pets__buttons a:hover{
     filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
     cursor: pointer;
   }
@@ -611,6 +617,31 @@
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+.pets__count{
+  display: flex;
+  width: 90%;
+}
+.pets input[type="number"]{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width:80%;
+  height:20px;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: all 0.2s;
+}
+.pets input[type="number"]::placeholder{
+  color:#ddd;
+}
+.pets input[type="number"]:active,
+.pets input[type="number"]:focus{
+  border: none;
+  outline: none;
+  filter: drop-shadow(rgba(0,0,0,0.3) 0 0 5px);
 }
 
 /* Modal Content/Box */
