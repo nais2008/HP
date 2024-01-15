@@ -134,9 +134,7 @@ if($conn->connect_error){
 </div>
 </body>
 <form action='#' method='post' id='home'></form>
-<?php 
- // echo $_POST['izm3'];
-?>
+
 
 <script type="text/javascript">
 	

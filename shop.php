@@ -101,8 +101,12 @@ if (isset($_POST['sozdat_product'])){
 	<div class="container">
 		<div class="product">
 			<section class="form_poisk">
-				<input type='text' class='poisk' id='search' placeholder="Поиск">
+				<form action="#" method="post">
+					<input type='text' class='poisk' id='search' placeholder="Поиск..." name='poisk_text'>
+					<button type="submit" class="poisk_submit" name="poisk_submit">Искать</button>
+				</form>
 			</section>
+
 			<div class="pet" id='output'>
 				<?php
 			    	$query = "SELECT * FROM `pet`";      
@@ -122,8 +126,6 @@ if (isset($_POST['sozdat_product'])){
 										<p><b>Описание: </b><span>",  substr($row['description'],  0, 39) .'...', "</span></p>
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
-
-									<input type='number' id='pets_count_".$row['id']."' placeholder='Количество: '>
 
 									<section class='pets__buttons'>
 										<form id='form_for_info_pet' method='post'>
@@ -147,14 +149,10 @@ if (isset($_POST['sozdat_product'])){
 										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
 									</section>
 
-									<input type='number' id='p".$row['id']."' placeholder='Количество: '>
-
 									<section class='pets__buttons'>
 										<button>Больше информации</button>
 										<a class='add_pr' name='dobav' data-value='".$row['id']."' href='#'>Добавить в корзину</a>
 									</section>
-
-									
 								</article>
 							";
 							continue;
@@ -170,6 +168,7 @@ if (isset($_POST['sozdat_product'])){
 					}
 				?>
 			</div>
+
 			<section class="form_sozdat">
 				<button type='button' class='sozdat' id='myBtn'>Создать объявление</button>
 
@@ -258,34 +257,7 @@ if (isset($_POST['sozdat_product'])){
   crossorigin="anonymous">
 </script>
 <script>
-$(document).ready(function() {
-	$("#search").keyup(function() {
-		var query = $(this).val();
-		if (query != "") {
-			$.ajax({
-				url: 'poisk_shop.php',
-				method: 'POST',
-				dаta: {
-					query: query
-				},
-				success: function(data) {
 
-					$('#output').html(data);
-					$('#output').css('display', 'block');
-
-					$("#search").focusout(function() {
-						$('#output').css('display', 'none');
-					});
-					$("#search").focusin(function() {
-						$('#output').css('display', 'block');
-					});
-				}
-			});
-		} else {
-			$('#output').css('display', 'none');
-		}
-	});
-});
 </script>
 </body>
 
