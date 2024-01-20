@@ -1,0 +1,234 @@
+/*Body*/
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#FFA700), color-stop(100%, rgba(255, 147, 0, 0.369792)), to(#FF5600));
+  background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
+  background-size: cover;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.container .acc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: -webkit-gradient(linear, left top, right top, from(#FFA700), color-stop(100%, rgba(255, 147, 0, 0.369792)), to(#FF5600));
+  background: linear-gradient(90deg, #FFA700 0%, rgba(255, 147, 0, 0.369792) 100%, #FF5600 100%);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  gap: 90px;
+  margin-top: 4%;
+}
+.container .acc__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 50px;
+}
+.container .acc__info_imgAcc img {
+  background: linear-gradient(85deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.76) 99.99%, rgba(255, 27, 27, 0) 100%);
+  width: 300px;
+  border-radius: 50%;
+}
+.container .acc__info_imgPet img {
+  background: linear-gradient(85deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.76) 99.99%, rgba(255, 27, 27, 0) 100%);
+  border-radius: 50%;
+  width: 300px;
+}
+.container .acc__info_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 400px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+}
+.container .acc__info_text div {
+  font-size: 24px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+.container .acc__info_text span input {
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #fff;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-box-shadow 0.2s;
+  transition: -webkit-box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+.container .acc__info_text span input:active, .container .acc__info_text span input:focus, .container .acc__info_text span input:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+  border: none;
+}
+.container .acc__info_text span input::-webkit-input-placeholder {
+  color: #ddd;
+}
+.container .acc__info_text span input::-moz-placeholder {
+  color: #ddd;
+}
+.container .acc__info_text span input:-ms-input-placeholder {
+  color: #ddd;
+}
+.container .acc__info_text span input::-ms-input-placeholder {
+  color: #ddd;
+}
+.container .acc__info_text span input::placeholder {
+  color: #ddd;
+}
+.container .acc__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+.container .acc__block div {
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+}
+.container .acc__block div p {
+  color: #FFF;
+  font-size: 20px;
+}
+.container .acc__block div img {
+  width: 100px;
+}
+.container .acc__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container .acc__buttons div button,
+.container .acc__buttons div input {
+  background: linear-gradient(85deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.76) 99.99%, rgba(255, 27, 27, 0) 100%);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 20px 30px;
+  border-radius: 500px;
+  font-weight: 700;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+}
+.container .acc__buttons div button:hover,
+.container .acc__buttons div input:hover {
+  -webkit-filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+          filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+  cursor: pointer;
+}
+.container .acc__buttons div:nth-child(1) input {
+  padding: 10px 20px;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 1130px) {
+  .container .acc__info {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .acc__info_imgAcc img {
+    width: 150px;
+  }
+  .container .acc__info_imgPet img {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .container .acc {
+    gap: 30px;
+  }
+  .container .acc__info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+  }
+  .container .acc__block {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .acc__block div {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 560px) {
+  .container .acc {
+    margin: 0;
+  }
+  .container .acc__block div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 445px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .container .acc {
+    padding: 2px;
+  }
+}

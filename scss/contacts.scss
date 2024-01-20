@@ -1,0 +1,84 @@
+@import 'block/header.scss';
+@import 'block/footer.scss';
+
+
+.header__navigation nav ul li:nth-child(4) a{
+    @include nav_text(700, 2px solid rgba(0, 0, 0, .3))
+}
+.footer__navigation nav ul li:nth-child(4) a{
+    @include nav_text(700, 2px solid rgba(0, 0, 0, .3))
+}
+.container{
+    margin-bottom: 15px;
+
+    section{
+        display: flex;
+        flex-direction: column;
+
+        article h1{
+            font-size: 26px;
+        }
+        section form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+
+            textarea{
+                height: 5rem;
+            }
+            input,
+            textarea{
+                width: 80%;
+                background-color: rgba(0, 0, 0, .45);
+                border: none;
+                padding: 10px 15px;
+                border-radius: 8px;
+                color:#fff;
+                box-shadow: 0 0 12px rgba(0, 0, 0, .4);
+                transition: box-shadow .2s;
+
+                &::placeholder{
+                    color: #ddd;
+                }
+                &:active,
+                &:focus{
+                    outline: none;
+                    border: 0;
+                    box-shadow: none;
+                }
+                &:hover{
+                    box-shadow: none;
+                }
+            }
+            .success_mail{
+                background: linear-gradient(to right, #00ad34, #00d440);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                font-weight: 700;
+            }
+            .text-danger{
+                background: linear-gradient(to right, #ad0000, #d40000);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                font-weight: 700;
+            }
+            button{
+                padding: 15px 20px;
+                font-size:17px;
+                border-radius: 500px;
+                border:1px solid #FE6969;
+                background: $bac_button;
+                color:#fff;
+                transition: all 0.2s;
+
+                &:hover{
+                    filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

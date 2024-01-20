@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 13 2024 г., 20:58
+-- Время создания: Янв 19 2024 г., 18:05
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.2.0
 
@@ -34,14 +34,6 @@ CREATE TABLE `card` (
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Дамп данных таблицы `card`
---
-
-INSERT INTO `card` (`id`, `name`, `description`, `price`) VALUES
-(7, '', '', 0),
-(8, '', '', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -61,15 +53,7 @@ CREATE TABLE `pet` (
 --
 
 INSERT INTO `pet` (`id`, `name`, `description`, `price`, `img`) VALUES
-(1, 'Pet', 'такса', 10000, 'https://img.aboutanimal.ru/images/2017/12/21/taksa-1513847225.jpg'),
-(2, 'asd', 'asd', 123, ''),
-(3, 'asdqwe', 'asdqwe', 123123, ''),
-(4, 'asdqweqwe', 'asdqweqweqweqwe', 123123123, ''),
-(5, 'asdfghjkl;', 'asdfghjklzxcvbnqwe', 456, ''),
-(41, 'Name', 'asdasdasdadsadsawdaswdasdawdasdwdasdwdasdawdasdasregfsergsergaregasergaser', 121212, 'shopping-cart(2).png'),
-(139, 'asdasgaregfsd', 'aerhdfaetrhaerhfdbzearda agaezd rfgaser5g eardg aerg ', 0, 'photo/img_shop/67c2dff6cd687c8c210234ac6d56e916.png'),
-(140, 'Name', 'tzrhhzthrthhttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt ', 2147483647, 'photo/img_shop/675d28c04794e3c683f4419536c4c15f_L.jpg'),
-(142, 'Name', 'eruaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 2147483647, 'photo/img_shop/675d28c04794e3c683f4419536c4c15f_L.jpg');
+(151, 'Генадий', 'Породистый. Возраст : полтора года. Продаю из-за аллергии. Очень ласковый.', 10000, 'photo/img_shop/675d28c04794e3c683f4419536c4c15f_L.jpg');
 
 -- --------------------------------------------------------
 
@@ -155,13 +139,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `card`
 --
 ALTER TABLE `card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 
 --
 -- AUTO_INCREMENT для таблицы `shop`

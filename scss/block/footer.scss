@@ -1,0 +1,114 @@
+/*FOOTER*/
+
+.footer{
+    background-color: rgba(0, 0, 0, .5);
+    color:#fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    a{
+        text-decoration: none;
+        color:#fff;
+    }
+    &__text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        aside{
+            font-size: 20px;
+        }
+    }
+    &__navigation{
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap:12px;
+            font-size: 24px;
+
+            li:last-child{
+                display: flex;
+                align-items: center;
+                gap:18px;
+
+                form button{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    border:none;
+                    background-color: #000;
+                    transition: filter .2s;
+    
+                    &:hover{
+                        filter: drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.50));
+                        cursor: pointer;
+                    }
+                    img{
+                        width: 45px;
+                        height:45px;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+    &__img{
+        display: flex;
+        flex-direction: column;
+
+        a:nth-child(1){
+            margin-top: 10px;
+            transition: filter .2s;
+
+            &:hover{
+                filter:drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.50));
+            }
+        }
+        a:nth-child(2) img{
+            width: 120px;
+            margin-left: -12px;
+            margin-top: -15px;
+            transition: filter .2s;
+
+            &:hover{
+                filter:drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.50));
+            }
+        }
+        a:nth-child(3) img{
+            width: 120px;
+            margin-left: -10px;
+            margin-top: -20px;
+            transition: filter .2s;
+
+            &:hover{
+                filter:drop-shadow(1px 4px 4px rgba(0, 0, 0, 0.50));
+            }
+        }
+    }
+}
+@media screen and (max-width:800px) {
+    .footer{
+        align-items: center;
+        flex-direction: column;
+
+        &__text{
+            p{
+                font-size: clamp(1rem, 2.5vw, 1.5rem);
+            }
+            h4{
+                font-size: clamp(1rem, 2.5vw, 1.5rem);
+            }
+        }
+        &__navigation{
+            nav ul{
+                margin-left: -30px;
+                align-items: center;
+            }
+        }
+    }
+}
