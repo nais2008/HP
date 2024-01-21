@@ -288,3 +288,12 @@ section:has(input) input[type=submit]:hover {
   -webkit-filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
           filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
 }
+
+.osh {
+  position: fixed;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  color: #fff;
+}

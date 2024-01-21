@@ -223,3 +223,11 @@ section:has(input){
     }
   }
 }
+.osh{
+  position: fixed;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  color: #fff;
+}

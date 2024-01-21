@@ -667,3 +667,16 @@ body.lock {
           filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
   cursor: pointer;
 }
+
+@media screen and (max-width: 820px) {
+  .container section section form textarea,
+  .container section section form input {
+    font-size: 18px;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    padding: 10px 20px;
+  }
+  .container section section form textarea {
+    height: 8rem;
+  }
+}

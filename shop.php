@@ -55,7 +55,7 @@ if (isset($_POST['sozdat_product'])){
 										<form id='form_for_info_pet' method='post'>
 											<button type='submit' form='form_for_info_pet'>Больше информации</button>
 										</form>
-										<a class='add_pr'  name='dobav' data-value='".$row['id']."'>Добавить в корзину</a>
+										<a class='add_pr'  name='dobav' data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</a>
 									</section>
 								</article>
 							";
@@ -77,7 +77,7 @@ if (isset($_POST['sozdat_product'])){
 									<form id='form_for_info_pet' method='post'>
 										<button type='submit' form='form_for_info_pet'>Больше информации</button>
 									</form>
-									<a class='add_pr'  name='dobav' data-value='".$row['id']."'>Добавить в корзину</a>
+									<a class='add_pr'  name='dobav' data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</a>
 									</section>
 								</article>
 							";
@@ -163,7 +163,9 @@ if (isset($_POST['sozdat_product'])){
   crossorigin="anonymous">
 </script>
 <script>
-
+function get_id(id){
+	console.log(id);
+}
 </script>
 </body>
 

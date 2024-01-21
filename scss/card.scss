@@ -1,0 +1,26 @@
+@import 'block/header.scss';
+@import 'block/footer.scss';
+
+.header__navigation nav ul li:nth-child(5) a{
+    @include nav_text(700, none)
+}
+.footer__navigation nav ul li:nth-child(5) a{
+    @include nav_text(700, none)
+}
+.container{
+    margin-top: 10px;
+
+    .pets{
+
+        .bay{ 
+            position: sticky;
+            margin-top: 10px;
+            float: right;
+
+            inframe{
+                margin-top: 10px;
+                float: right;
+            }
+        }
+    }
+}
