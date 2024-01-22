@@ -46,7 +46,7 @@
   gap:10px;
 }
   .poisk{
-	width:83.5vw;
+	width:90vw;
 	background-color: rgba(0, 0, 0, 0.5);
 	padding: 10px 25px;
 	font-size: 20px;
@@ -65,24 +65,6 @@
 	box-shadow: none;
   outline: none;
 	border:none;
-  }
-  .poisk:checked{
-	box-shadow: none;
-  }
-  .poisk_submit{
-    margin-top:-10px;
-    height: 50px;
-  padding: 10px 25px;
-	font-size:20px;
-	border-radius: 500px;
-	border:none;
-	background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
-	color:#fff;
-	transition: all .2s;
-  }
-  .poisk_submit:hover{
-    filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
-    cursor: pointer;
   }
   .sozdat{
 	padding: 25px 30px;
@@ -127,6 +109,19 @@
   }
   .pets__info{
     text-align: center;
+
+    input:disabled{
+      background: rgba(0,0,0,0);
+      color:#fff;
+      border: none;
+      font-size: 16px;
+      width: 20%;
+
+      &:nth-child(1){
+        font-size: 26px;
+        font-weight: 600;
+      }
+    }
   }
   .pets__buttons{
     display: flex;

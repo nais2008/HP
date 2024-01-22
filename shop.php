@@ -4,6 +4,30 @@
 	include 'include/header.php';
 ?>
 <?php
+if(isset($_POST['add_to_cart'])){
+	if(isset($_SESSION['cart'])){
+		$session_array_id = array_column($_SESSION['cart'], 'id');
+
+		if(!in_array($_GET['id'], $session_array_id)){
+			$session_array = array(
+				'id' => $_GET['id'],
+				'name' => $_POST['name'],
+				'price' => $_POST['price'],
+			);
+	
+			$_SESSION['cart'][] = $session_array;
+		}
+	}else{
+		$session_array = array(
+			'id' => $_GET['id'],
+			'name' => $_POST['name'],
+			'price' => $_POST['price'],
+		);
+
+		$_SESSION['cart'][] = $session_array;
+	}
+}
+
 if (isset($_POST['sozdat_product'])){
 	if (isset($_POST['nickname_modal']) &&
 			isset($_POST['price_modal']) &&
@@ -27,18 +51,39 @@ if (isset($_POST['sozdat_product'])){
 		<div class="product">
 			<section class="form_poisk">
 				<form action="#" method="post">
-					<input type='text' class='poisk' id='search' placeholder="Поиск..." name='poisk_text'>
-					<button type="submit" class="poisk_submit" name="poisk_submit">Искать</button>
+					<input type='text' inputmode="search" class='poisk' id='getName' placeholder="Поиск..." name='poisk_text'>
 				</form>
 			</section>
-			<div class="pet">
+			<div class="pet" id='pet'>
 			<?php
-					$query = "SELECT * FROM `pet`";      
-					$result = mysqli_query($conn, $query);   
-					
-					while($row = $result -> fetch_assoc()){
-						if (isset($row)){
-							if (strlen($row['description']) > 20){
+				$query = "SELECT * FROM `pet`";      
+				$result = mysqli_query($conn, $query);   
+				
+				while($row = $result -> fetch_assoc()){
+					if (isset($row)){
+						if (strlen($row['description']) > 20){
+							echo "
+							<article class='pets' id='output'>
+								<section class='pets__img'>
+									<img src='", $row['img'], "' alt=''>
+								</section>
+
+								<section class='pets__info'>
+									<h2>Кличка: <input name='name' value=".$row['name']." form='carts' disabled></h2>
+									<p><b>Описание: </b><span>",  substr($row['description'],  0, 39) .'...', "</span></p>
+									<p><b>Цена: </b><input name='price' form='carts' value=".$row['price']." disabled>р.</p>
+								</section>
+
+								<section class='pets__buttons'>
+								<button type='submit' form='form_for_info_pet'>Больше информации</button>
+									<form id='carts' method='get' action='shop.php?id=".$row['id']."'>
+										<button type='submit' name='add_to_cart' class='add_pr' value=".$row['id']." data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</button>
+									</form>
+								</section>
+							</article>
+							";
+							continue;
+							} else{
 								echo "
 								<article class='pets' id='output'>
 									<section class='pets__img'>
@@ -46,41 +91,19 @@ if (isset($_POST['sozdat_product'])){
 									</section>
 
 									<section class='pets__info'>
-										<h2>Кличка: <span>", $row['name'], "</span></h2>
-										<p><b>Описание: </b><span>",  substr($row['description'],  0, 39) .'...', "</span></p>
-										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
+										<h2>Кличка: <input name='name' value=".$row['name']." form='carts' disabled></h2>
+										<p><b>Описание: </b><span>",$row['description'], "</span></p>
+										<p><b>Цена: </b><input name='price' form='carts' value=".$row['price']." disabled>р.</p>
 									</section>
 
 									<section class='pets__buttons'>
-										<form id='form_for_info_pet' method='post'>
-											<button type='submit' form='form_for_info_pet'>Больше информации</button>
+									<button type='submit' form='form_for_info_pet'>Больше информации</button>
+										<form id='carts' method='get' action='shop.php?id=".$row['id']."'>
+											<button type='submit' name='add_to_cart' class='add_pr' value=".$row['id']." data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</button>
 										</form>
-										<a class='add_pr'  name='dobav' data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</a>
 									</section>
 								</article>
-							";
-							continue;
-							} else{
-								echo "
-								<article class='pets' id='output''>
-									<section class='pets__img'>
-										<img src='", $row['img'], "' alt=''>
-									</section>
-
-									<section class='pets__info'>
-										<h2>Кличка: <span>", $row['name'], "</span></h2>
-										<p><b>Описание: </b><span>",  $row['description'], "</span></p>
-										<p><b>Цена: </b><span>", $row['price'], "р.</span></p>
-									</section>
-
-									<section class='pets__buttons'>
-									<form id='form_for_info_pet' method='post'>
-										<button type='submit' form='form_for_info_pet'>Больше информации</button>
-									</form>
-									<a class='add_pr'  name='dobav' data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</a>
-									</section>
-								</article>
-							";
+								";
 							continue;
 							}
 						} else if(!isset($row)){
@@ -122,6 +145,7 @@ if (isset($_POST['sozdat_product'])){
 								<input type="text" 
 										  name="price_modal" 
 										  form="form_modal" 
+										  inputmode="decimal"
 										  placeholder="Введите цену :"
 										  class='input_modal'>
 							</aside>
@@ -142,6 +166,9 @@ if (isset($_POST['sozdat_product'])){
 		</div>
 	</div>
 </main>
+<?php
+    // var_dump($_SESSION['cart']);
+?>
 <?php //FOOTER
     include 'include/footer.php';
 ?>
@@ -165,8 +192,35 @@ if (isset($_POST['sozdat_product'])){
 <script>
 function get_id(id){
 	console.log(id);
+
+	// $.ajax({
+	// 	url: 'shop.php',
+	// 	type: "POST",
+	// 	data: {
+	// 		"id_pet": `${id}`
+	// 	},
+	// 	success:function(data){
+	// 		console.log(data);
+	// 	}
+	// });
 }
+
+$(document).ready(function(){
+	$('#getName').on('keyup', function(){
+		var getName = $(this).val();
+
+		$.ajax({
+			method: "POST",
+			url: "searchajax.php",
+			data: {
+				search: getName
+			},
+			success: function(response){
+				$("#pet").html(response);
+			}
+		});
+	});
+});
 </script>
 </body>
-
 </html>

@@ -615,7 +615,7 @@ body.lock {
 }
 
 .poisk {
-  width: 83.5vw;
+  width: 90vw;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 25px;
   font-size: 20px;
@@ -655,30 +655,6 @@ body.lock {
           box-shadow: none;
   outline: none;
   border: none;
-}
-
-.poisk:checked {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.poisk_submit {
-  margin-top: -10px;
-  height: 50px;
-  padding: 10px 25px;
-  font-size: 20px;
-  border-radius: 500px;
-  border: none;
-  background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
-  color: #fff;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.poisk_submit:hover {
-  -webkit-filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
-          filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
-  cursor: pointer;
 }
 
 .sozdat {
@@ -744,6 +720,17 @@ body.lock {
 
 .pets__info {
   text-align: center;
+}
+.pets__info input:disabled {
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  width: 20%;
+}
+.pets__info input:disabled:nth-child(1) {
+  font-size: 26px;
+  font-weight: 600;
 }
 
 .pets__buttons {
