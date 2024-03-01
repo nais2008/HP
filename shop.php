@@ -4,30 +4,6 @@
 	include 'include/header.php';
 ?>
 <?php
-if(isset($_POST['add_to_cart'])){
-	if(isset($_SESSION['cart'])){
-		$session_array_id = array_column($_SESSION['cart'], 'id');
-
-		if(!in_array($_GET['id'], $session_array_id)){
-			$session_array = array(
-				'id' => $_GET['id'],
-				'name' => $_POST['name'],
-				'price' => $_POST['price'],
-			);
-	
-			$_SESSION['cart'][] = $session_array;
-		}
-	}else{
-		$session_array = array(
-			'id' => $_GET['id'],
-			'name' => $_POST['name'],
-			'price' => $_POST['price'],
-		);
-
-		$_SESSION['cart'][] = $session_array;
-	}
-}
-
 if (isset($_POST['sozdat_product'])){
 	if (isset($_POST['nickname_modal']) &&
 			isset($_POST['price_modal']) &&
@@ -45,6 +21,12 @@ if (isset($_POST['sozdat_product'])){
 		header('Location: shop.php');
 	}
 } 
+if (isset($_POST['add_to_cart'])){
+	$query = "INSERT INTO `cart`(`id`, `name`, `description`, `price`)
+			  SELECT `id`, `name`, `description`, `price` FROM `pet` 
+			  WHERE pet.id = ".$_COOKIE['id']."";
+	mysqli_query($conn, $query);
+}
 ?>
 <main>
 	<div class="container">
@@ -69,14 +51,14 @@ if (isset($_POST['sozdat_product'])){
 								</section>
 
 								<section class='pets__info'>
-									<h2>Кличка: <input name='name' value=".$row['name']." form='carts' disabled></h2>
+									<h2>Кличка: <span></span>".$row['name']."</span></h2>
 									<p><b>Описание: </b><span>",  substr($row['description'],  0, 39) .'...', "</span></p>
-									<p><b>Цена: </b><input name='price' form='carts' value=".$row['price']." disabled>р.</p>
+									<p><b>Цена: </b><span>".$row['price']."р.</span></p>
 								</section>
 
 								<section class='pets__buttons'>
-								<button type='submit' form='form_for_info_pet'>Больше информации</button>
-									<form id='carts' method='get' action='shop.php?id=".$row['id']."'>
+								<!--<button type='submit' form='form_for_info_pet'>Больше информации</button>-->
+									<form id='carts' method='post' action='shop.php?id=".$row['id']."'>
 										<button type='submit' name='add_to_cart' class='add_pr' value=".$row['id']." data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</button>
 									</form>
 								</section>
@@ -91,20 +73,20 @@ if (isset($_POST['sozdat_product'])){
 									</section>
 
 									<section class='pets__info'>
-										<h2>Кличка: <input name='name' value=".$row['name']." form='carts' disabled></h2>
+										<h2>Кличка: <span></span>".$row['name']."</span></h2>
 										<p><b>Описание: </b><span>",$row['description'], "</span></p>
-										<p><b>Цена: </b><input name='price' form='carts' value=".$row['price']." disabled>р.</p>
+										<p><b>Цена: </b><span>".$row['price']."р.</span></p>
 									</section>
 
 									<section class='pets__buttons'>
-									<button type='submit' form='form_for_info_pet'>Больше информации</button>
-										<form id='carts' method='get' action='shop.php?id=".$row['id']."'>
+									<!--<button type='submit' form='form_for_info_pet'>Больше информации</button>-->
+										<form id='carts' method='post' action='shop.php?id=".$row['id']."'>
 											<button type='submit' name='add_to_cart' class='add_pr' value=".$row['id']." data-value='".$row['id']."' onclick='get_id(".$row['id'].")'>Добавить в корзину</button>
 										</form>
 									</section>
 								</article>
 								";
-							continue;
+								continue;
 							}
 						} else if(!isset($row)){
 							echo "
@@ -166,9 +148,6 @@ if (isset($_POST['sozdat_product'])){
 		</div>
 	</div>
 </main>
-<?php
-    // var_dump($_SESSION['cart']);
-?>
 <?php //FOOTER
     include 'include/footer.php';
 ?>
@@ -192,17 +171,7 @@ if (isset($_POST['sozdat_product'])){
 <script>
 function get_id(id){
 	console.log(id);
-
-	// $.ajax({
-	// 	url: 'shop.php',
-	// 	type: "POST",
-	// 	data: {
-	// 		"id_pet": `${id}`
-	// 	},
-	// 	success:function(data){
-	// 		console.log(data);
-	// 	}
-	// });
+	document.cookie = "id=" + id;
 }
 
 $(document).ready(function(){
@@ -222,5 +191,8 @@ $(document).ready(function(){
 	});
 });
 </script>
+<?php
+
+?>
 </body>
 </html>

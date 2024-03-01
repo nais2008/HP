@@ -15,14 +15,26 @@
 					<li><a href='index.php'>Главная</a></li>
 					<li><a href='shop.php'>Друзья</a></li>
 					<li><a href='info.php'>О сервисе</a></li>
-					<li><a href='contacts.php'>Контаты</a></li>
+					<li><a href='check_contacts.php'>Контаты</a></li>
 					<li>
 						<form action="card.php">
 							<button type="submit">
 								<img src="img/card.png" alt="корзина">
 							</button>
 						</form>
-						<p><a href="card.php">0р.</a></p>
+						<p><a href="card.php">
+							<?php
+								$query = "SELECT SUM(price) FROM `cart`";
+								$result = mysqli_query($conn, $query);
+								$row = $result -> fetch_assoc();
+								if (!isset($row)){
+									echo "0р. ";
+								}
+								else{
+									echo "".$row['SUM(price)']."р. ";	
+								}
+							?>
+						</a></p>
 					</li>
 				</ul>
 			</nav>

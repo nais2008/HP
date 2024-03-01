@@ -414,7 +414,7 @@ body.lock {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 10px;;
 }
 .footer a {
   text-decoration: none;
@@ -562,14 +562,64 @@ body.lock {
 }
 
 .container {
-  margin-top: 10px;
+  margin-top: 20px;
+  }
+.container .pets{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 3vw;
 }
-.container .pets .bay {
-  position: sticky;
-  margin-top: 10px;
-  float: right;
+.container .pets .pet{
+  background: linear-gradient(84.83deg, rgba(255, 27, 27, 0) -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, #FE6969 100%);
+  width: 45vw;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  text-align:center;
 }
-.container .pets .bay inframe {
-  margin-top: 10px;
-  float: right;
+.container .pets .pet .pets__buttons button{
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 17px;
+  border-radius: 500px;
+  border: 1px solid #FE6969;
+  background: linear-gradient(84.83deg, #FE6969 -3.48%, rgba(255, 0, 0, 0.755208) 99.99%, rgba(255, 27, 27, 0) 100%);
+  color: #fff;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.container .pets .pet .pets__buttons button:hover{
+  -webkit-filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+          filter: drop-shadow(0rem 0.438rem 2.188rem rgba(251, 68, 48, 0.56));
+  cursor: pointer;
+}
+@media screen and (max-width:1020px){
+	.container .pets .pet{
+		width:100%;
+	}
 }

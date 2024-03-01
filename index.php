@@ -8,7 +8,7 @@
 			<section class="container__left">
 				<article class="container__left__text">
 					<h1>Твой новый друг с доставкой на дом</h1>
-					<p>Онлайн-магазин домашних животных - удобное решение, когда лень выходиь из дома</p>
+					<p>Онлайн-магазин домашних животных - удобное решение, когда лень выходить из дома</p>
 				</article>
 				<section class="container__left__button">
 					<form action="shop.php">

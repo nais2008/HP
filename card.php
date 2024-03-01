@@ -3,21 +3,57 @@
 	$css_name = 'card';
 	include 'include/header.php';
 ?>
+<?php
+	if (isset($_POST['delete_pr'])){
+		$query = "DELETE FROM `cart`
+				  WHERE id = ".$_COOKIE['id_card']."";
+		mysqli_query($conn, $query);
+	}
+?>
 <main>
     <div class="container">
         <section class="pets">
         <?php
-            var_dump($_SESSION['cart']);
+			$query = 'SELECT * FROM `cart`';
+			$result = mysqli_query($conn, $query);
+			while ($row = $result -> fetch_assoc()){
+				if (strlen($row['description']) > 20){
+					echo "
+						<article class='pet' id='output'>
+							<section class='pets__info'>
+								<h2>Кличка: <span></span>".$row['name']."</span></h2>
+								<p><b>Описание: </b><span>",  substr($row['description'],  0, 39) .'...', "</span></p>
+								<p><b>Цена: </b><span>".$row['price']."р.</span></p>
+							</section>
+
+							<section class='pets__buttons'>
+								<form action='#' method='post'>
+									<button type='submit' onclick='get_id(".$row['id'].")' name='delete_pr'>Удалить из корзины</button>
+								</form>
+							</section>
+						</article>
+					";
+					continue;
+				} else{
+					echo "
+						<article class='pet' id='output'>
+							<section class='pets__info'>
+								<h2>Кличка: <span></span>".$row['name']."</span></h2>
+								<p><b>Описание: </b><span>",$row['description'], "</span></p>
+								<p><b>Цена: </b><span>".$row['price']."р.</span></p>
+							</section>
+
+							<section class='pets__buttons'>
+								<form action='#' method='post'>
+									<button type='submit' onclick='get_id(".$row['id'].")' name='delete_pr'>Удалить из корзины</button>
+								</form>
+							</section>
+						</article>
+					";
+					continue;
+				}
+			}
         ?>
-        </section>
-        <section class="bay">
-            <!-- <iframe src="https://widget.qiwi.com/widgets/middle-widget-300x300?publicKey=48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPxE4uFQHHy89axavNrPC8J73hwkPfXLXExUFVzZayLc89qSSBfEjicbPWNURcMNEefnc5BcAqouog3EM74b6D8YYKD3gDyepPEomsS6ADK&noCache=true" 
-                width="300" 
-                height="300"
-                allowTransparency="true" 
-                scrolling="no" 
-                frameBorder="0">
-            </iframe> -->
         </section>
     </div>
 </main>
@@ -26,6 +62,12 @@
 ?>
 <script type='text/javascript' 
 			src="js/main.js">
+</script>
+<script>
+function get_id(id){
+	console.log(id);
+	document.cookie = "id_card=" + id;
+}
 </script>
 </body>
 </html>

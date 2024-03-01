@@ -5,6 +5,9 @@ $conn = mysqli_connect("localhost", "root", "", "hp");
 if($conn->connect_error){
     die("Ошибка: " . $conn->connect_error);
 }
+
+$query = "DELETE FROM card";
+mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +72,14 @@ if($conn->connect_error){
 									<img src="img/card.png" alt="Корзина">
 								</button>
 							</form>
-							<p><a href='card.php'>0p. ⯆</a></p>
+							<p><a href='card.php'>
+								<?php
+									$query = "SELECT price FROM `card`";
+									$result = mysqli_query($conn, $query);
+									$row = $result -> fetch_assoc();
+									echo "".$row['SUM(price)']."р. ";
+								?>
+							</a></p>
 						</li>
 						<li>
 							<?php
